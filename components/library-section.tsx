@@ -1,6 +1,51 @@
+import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
 
-const slots = ['001', '002', '003']
+type Entry = {
+  id: string
+  artist: string
+  image: string
+  alt: string
+}
+
+const entries: Entry[] = [
+  {
+    id: '001',
+    artist: 'Takashi Murakami',
+    image: '/images/toys/takashi-murakami.jpg',
+    alt: 'Two round character head figures by Takashi Murakami, one in gold and silver, one in red and blue',
+  },
+  {
+    id: '002',
+    artist: 'James Jean',
+    image: '/images/toys/james-jean.jpg',
+    alt: 'Pale blue-grey kneeling child figure with gold eyes aiming a slingshot, by James Jean',
+  },
+  {
+    id: '003',
+    artist: 'KAWS',
+    image: '/images/toys/kaws.jpg',
+    alt: 'Three KAWS figures in grey, black, and brown, each carrying smaller figures',
+  },
+  {
+    id: '004',
+    artist: 'Yoshitomo Nara',
+    image: '/images/toys/yoshitomo-nara.jpg',
+    alt: 'Yoshitomo Nara figures: a sleeping child in a pale blue hood and a dog sitting in a teacup',
+  },
+  {
+    id: '005',
+    artist: 'Futura',
+    image: '/images/toys/futura.jpg',
+    alt: 'Black angular figure standing on a round black base, by Futura',
+  },
+  {
+    id: '006',
+    artist: 'Javier Calleja',
+    image: '/images/toys/javier-calleja.jpg',
+    alt: 'Javier Calleja figures: a stack of big-eyed heads and a boy in a red beanie holding a No Art Here sign',
+  },
+]
 
 export function LibrarySection() {
   return (
@@ -17,32 +62,36 @@ export function LibrarySection() {
             </p>
           </div>
           <span className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            Awaiting first entries
+            {`${entries.length} entries`}
           </span>
         </div>
 
         <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {slots.map((slot) => (
-            <li key={slot}>
-              <article className="group flex flex-col overflow-hidden rounded-sm border border-border bg-card">
-                <div className="bg-grid relative flex aspect-[4/5] items-center justify-center border-b border-border">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                    Main image
-                  </span>
-                  <span className="absolute left-4 top-4 font-mono text-[10px] tracking-[0.3em] text-muted-foreground">
-                    {`NO. ${slot}`}
+          {entries.map((entry) => (
+            <li key={entry.id}>
+              <article className="group flex h-full flex-col overflow-hidden rounded-sm border border-border bg-card">
+                <div className="relative aspect-[4/5] border-b border-border bg-white">
+                  <Image
+                    src={entry.image || '/placeholder.svg'}
+                    alt={entry.alt}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-contain p-6 transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                  <span className="absolute left-4 top-4 font-mono text-[10px] tracking-[0.3em] text-neutral-500">
+                    {`NO. ${entry.id}`}
                   </span>
                 </div>
-                <div className="flex flex-col gap-1 p-6">
-                  <h3 className="text-lg font-semibold text-foreground">Toy name</h3>
-                  <p className="text-sm text-muted-foreground">Artist</p>
+                <div className="flex flex-1 flex-col gap-1 p-6">
+                  <h3 className="text-lg font-semibold text-muted-foreground">Toy name</h3>
+                  <p className="text-sm text-foreground">{entry.artist}</p>
                   <a
                     href="#record"
                     className="mt-4 inline-flex w-fit items-center gap-1 border-b border-foreground/40 pb-0.5 font-mono text-xs uppercase tracking-[0.2em] text-foreground transition-colors hover:border-foreground"
                   >
                     Read more
                     <ArrowUpRight className="size-3.5" aria-hidden="true" />
-                    <span className="sr-only">{`about entry ${slot}`}</span>
+                    <span className="sr-only">{`about entry ${entry.id} by ${entry.artist}`}</span>
                   </a>
                 </div>
               </article>
