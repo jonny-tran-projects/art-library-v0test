@@ -19,7 +19,7 @@ const entries: Entry[] = [
     id: '002',
     artist: 'James Jean',
     image: '/images/toys/james-jean.jpg',
-    alt: 'Pale blue-grey kneeling child figure with gold eyes aiming a slingshot, by James Jean',
+    alt: 'Pale grey figure of a girl with a hair bun and caped dress holding a gold labyrinth wire, on a round base, by James Jean',
   },
   {
     id: '003',
@@ -31,7 +31,7 @@ const entries: Entry[] = [
     id: '004',
     artist: 'Yoshitomo Nara',
     image: '/images/toys/yoshitomo-nara.jpg',
-    alt: 'Yoshitomo Nara figures: a sleeping child in a pale blue hood and a dog sitting in a teacup',
+    alt: 'Three Yoshitomo Nara figures in teal, green, and red dresses with party hats numbered 1, 2, and 3, holding gold mallets',
   },
   {
     id: '005',
