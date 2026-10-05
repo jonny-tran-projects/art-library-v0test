@@ -18,7 +18,7 @@ const entries: Entry[] = [
   {
     id: '002',
     artist: 'James Jean',
-    image: '/images/toys/james-jean.jpg',
+    image: '/images/toys/james-jean-maze.jpg',
     alt: 'Pale grey figure of a girl with a hair bun and caped dress holding a gold labyrinth wire, on a round base, by James Jean',
   },
   {
@@ -30,7 +30,7 @@ const entries: Entry[] = [
   {
     id: '004',
     artist: 'Yoshitomo Nara',
-    image: '/images/toys/yoshitomo-nara.jpg',
+    image: '/images/toys/yoshitomo-nara-party.jpg',
     alt: 'Three Yoshitomo Nara figures in teal, green, and red dresses with party hats numbered 1, 2, and 3, holding gold mallets',
   },
   {
